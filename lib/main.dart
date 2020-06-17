@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: Container(
+          alignment: Alignment(0.0, 0.0),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -49,17 +50,37 @@ class _MyHomePageState extends State<MyHomePage> {
               colors: [Colors.orange, Colors.red]
             )
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: Image.asset('assets/images/connexion.png')
+              Image.asset(
+                'assets/images/connexion.png',
+                height: 150,
+                fit: BoxFit.fill,
               ),
-              Expanded(
-                child: Text('CONNEXION'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'CONN',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                  Text(
+                    'EXION',
+                    style: TextStyle(color: Colors.amberAccent),
+                  ),
+                ],
               ),
-              Expanded(
-                child: Text('CONNEXION'),
+              Column(
+                children: [
+                  Text(
+                    'Find and meet people around',
+                    style: TextStyle(color: Colors.amberAccent),
+                  ),
+                  Texxt(
+                    ''
+                  )
+                ]
               )
             ],
           ),
