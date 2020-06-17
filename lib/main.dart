@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -54,7 +54,7 @@ class MyHomePage extends StatelessWidget
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('CONN',
+                            Text('CONN1',
                               style: Theme.of(context).textTheme.headline4.copyWith(
                                   color: Colors.pink,
                                   fontWeight: FontWeight.bold
@@ -88,27 +88,39 @@ class MyHomePage extends StatelessWidget
                         height: 100,
                         child: Padding (
                           padding: const EdgeInsets.all(15.0),
-                          child: FlatButton.icon(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(35.0),
-                                side: BorderSide(color: Colors.red),
+                          child: RaisedButton (
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(35.0),
+                              side: BorderSide(color: Colors.red),
+                            ),
+                            onPressed: () {},
+                            color: Colors.white,
+                            textColor: Colors.red,
+                            child: Container (
+                              child: Row (
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/ic_fb.png',
+                                    width: 40,
+                                    height: 40,
+                                    fit: BoxFit.fill,
+                                  ),
+                                  VerticalDivider (
+                                    color: Colors.pink,
+                                    thickness: 1,
+                                    indent: 18,
+                                    endIndent: 18,
+                                  ),
+                                  Text('Sign in with Facebook',
+                                    style: Theme.of(context).textTheme.headline4.copyWith(
+                                      color: Colors.pink,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w400
+                                    ),
+                                  ),
+                                ],
                               ),
-                              onPressed: () {},
-                              color: Colors.white,
-                              textColor: Colors.red,
-                              icon: Image.asset(
-                                'assets/images/ic_fb.png',
-                                width: 40,
-                                height: 40,
-                                fit: BoxFit.fill,
-                              ),
-                              label: Text(
-                                'Sign in with Facebook',
-                                style: Theme.of(context).textTheme.headline4.copyWith(
-                                  color: Colors.pink,
-                                  fontSize: 20,
-                                ),
-                              )
+                            ),
                           ),
                         ),
                       ),
@@ -117,7 +129,7 @@ class MyHomePage extends StatelessWidget
                         height: 100,
                         child: Padding (
                           padding: const EdgeInsets.all(15.0),
-                          child: FlatButton.icon(
+                            child: RaisedButton (
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(35.0),
                                 side: BorderSide(color: Colors.red),
@@ -125,20 +137,32 @@ class MyHomePage extends StatelessWidget
                               onPressed: () {},
                               color: Colors.white,
                               textColor: Colors.red,
-                              icon: Image.asset(
-                                'assets/images/ic_tw.png',
-                                width: 40,
-                                height: 40,
-                                fit: BoxFit.fill,
-                              ),
-                              label: Text(
-                                'Sign in with Twitter',
-                                style: Theme.of(context).textTheme.headline4.copyWith(
-                                  color: Colors.pink,
-                                  fontSize: 20,
+                              child: Container (
+                                child: Row (
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/ic_tw.png',
+                                      width: 40,
+                                      height: 40,
+                                      fit: BoxFit.fill,
+                                    ),
+                                    VerticalDivider (
+                                      color: Colors.pink,
+                                      thickness: 1,
+                                      indent: 18,
+                                      endIndent: 18,
+                                    ),
+                                    Text('Sign in with Twitter',
+                                      style: Theme.of(context).textTheme.headline4.copyWith(
+                                        color: Colors.pink,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w400
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              )
-                          ),
+                              ),
+                            ),
                         ),
                       ),
                       Container (
@@ -158,6 +182,7 @@ class MyHomePage extends StatelessWidget
                                 style: Theme.of(context).textTheme.headline4.copyWith(
                                   fontSize: 20,
                                   color: Colors.pink,
+                                  fontWeight: FontWeight.w400
                                 )
                             ),
                           ),
