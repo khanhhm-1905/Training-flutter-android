@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('CONN1',
+                              Text('CONN',
                                 style: Theme.of(context).textTheme.headline4.copyWith(
                                     color: Colors.pink,
                                     fontWeight: FontWeight.bold
