@@ -1,0 +1,194 @@
+import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
+
+class LoginScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment:  CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container (
+                child: SizedBox(
+                  height: 155.0,
+                  child: Image.asset(
+                    'assets/images/connexion.png',
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              Container (
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('CONN',
+                        style: Theme.of(context).textTheme.headline4.copyWith(
+                            color: Colors.pink,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Text('EXION',
+                        style: Theme.of(context).textTheme.headline4.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ],
+                  )
+              ),
+              Container (
+                width: 200,
+                child: Padding (
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
+                  child: Text('Find and Meet people around you to find LOVE',
+                    style: Theme.of(context).textTheme.headline6.copyWith(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              Container (
+                width: 500,
+                height: 100,
+                child: Padding (
+                  padding: const EdgeInsets.all(15.0),
+                  child: RaisedButton (
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35.0),
+                      side: BorderSide(color: Colors.red),
+                    ),
+                    onPressed: () {},
+                    color: Colors.white,
+                    textColor: Colors.red,
+                    child: Container (
+                      child: Row (
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/ic_fb.png',
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.fill,
+                          ),
+                          VerticalDivider (
+                            color: Colors.pink,
+                            thickness: 1.5,
+                            indent: 18,
+                            endIndent: 18,
+                          ),
+                          GradientText('Sign in with Facebook',
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
+                            ),
+                            style: Theme.of(context).textTheme.headline4.copyWith(
+                                color: Colors.pink,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container (
+                width: 500,
+                height: 100,
+                child: Padding (
+                  padding: const EdgeInsets.all(15.0),
+                  child: RaisedButton (
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35.0),
+                      side: BorderSide(color: Colors.red),
+                    ),
+                    onPressed: () {},
+                    color: Colors.white,
+                    textColor: Colors.red,
+                    child: Container (
+                      child: Row (
+                        children: [
+                          Image.asset(
+                            'assets/images/ic_tw.png',
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.fill,
+                          ),
+                          VerticalDivider (
+                            color: Colors.pink,
+                            thickness: 1.5,
+                            indent: 18,
+                            endIndent: 18,
+                          ),
+                          GradientText('Sign in with Twitter',
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
+                            ),
+                            style: Theme.of(context).textTheme.headline4.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container (
+                width: 500,
+                height: 100,
+                child: Padding (
+                  padding: const EdgeInsets.all(15.0),
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35.0),
+                      side: BorderSide(color: Colors.red),
+                    ),
+                    onPressed: () {},
+                    color: Colors.white,
+                    textColor: Colors.red,
+                    child: GradientText('Sign Up',
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
+                        ),
+                        style: Theme.of(context).textTheme.headline4.copyWith(
+                            fontSize: 20,
+                            color: Colors.pink,
+                            fontWeight: FontWeight.w400
+                        )
+                    ),
+                  ),
+                ),
+              ),
+              Container (
+                child: Padding (
+                  padding: const EdgeInsets.all(15.0),
+                  child: TextSpan('ALREADY REGISTERED? SIGN IN',
+                    style: Theme.of(context).textTheme.headline4.copyWith(
+                        color: Colors.white,
+                        fontSize: 15,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
