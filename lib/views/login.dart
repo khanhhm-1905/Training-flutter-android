@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
     return Center(
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
           child: Column(
             crossAxisAlignment:  CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -28,26 +28,29 @@ class LoginScreen extends StatelessWidget {
                       Text('CONN',
                         style: Theme.of(context).textTheme.headline4.copyWith(
                             color: Colors.pink,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40
                         ),
                       ),
                       Text('EXION',
                         style: Theme.of(context).textTheme.headline4.copyWith(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40
                         ),
                       ),
                     ],
                   )
               ),
               Container (
-                width: 200,
+                width: 230,
                 child: Padding (
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                   child: Text('Find and Meet people around you to find LOVE',
                     style: Theme.of(context).textTheme.headline6.copyWith(
                       color: Colors.white,
-                      fontSize: 15,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -127,17 +130,20 @@ class LoginScreen extends StatelessWidget {
                             indent: 18,
                             endIndent: 18,
                           ),
-                          GradientText('Sign in with Twitter',
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: GradientText('Sign in with Twitter',
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
+                              ),
+                              style: Theme.of(context).textTheme.headline4.copyWith(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                            style: Theme.of(context).textTheme.headline4.copyWith(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -175,12 +181,12 @@ class LoginScreen extends StatelessWidget {
               Container (
                 child: Padding (
                   padding: const EdgeInsets.all(15.0),
-                  child: TextSpan('ALREADY REGISTERED? SIGN IN',
-                    style: Theme.of(context).textTheme.headline4.copyWith(
+                  child: Text('ALREADY REGISTERED? SIGN IN',
+                    style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
+                        fontWeight: FontWeight.w500,
                         decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.w500
                     ),
                   ),
                 ),
