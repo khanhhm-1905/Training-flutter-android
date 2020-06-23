@@ -9,7 +9,7 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
           child: Column(
-            crossAxisAlignment:  CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container (
@@ -26,14 +26,14 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('CONN',
-                        style: Theme.of(context).textTheme.headline4.copyWith(
+                        style: TextStyle(
                             color: Colors.pink,
                             fontWeight: FontWeight.bold,
                             fontSize: 40
                         ),
                       ),
                       Text('EXION',
-                        style: Theme.of(context).textTheme.headline4.copyWith(
+                        style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 40
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                 child: Padding (
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                   child: Text('Find and Meet people around you to find LOVE',
-                    style: Theme.of(context).textTheme.headline6.copyWith(
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
@@ -90,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                                 end: Alignment.bottomCenter,
                                 colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
                             ),
-                            style: Theme.of(context).textTheme.headline4.copyWith(
+                            style: TextStyle(
                                 color: Colors.pink,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400
@@ -138,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                                   end: Alignment.bottomCenter,
                                   colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
                               ),
-                              style: Theme.of(context).textTheme.headline4.copyWith(
+                              style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -169,7 +169,7 @@ class LoginScreen extends StatelessWidget {
                             end: Alignment.bottomCenter,
                             colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
                         ),
-                        style: Theme.of(context).textTheme.headline4.copyWith(
+                        style: TextStyle(
                             fontSize: 20,
                             color: Colors.pink,
                             fontWeight: FontWeight.w400
