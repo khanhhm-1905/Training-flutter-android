@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:learningflutter2020/views/auth/login.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learningflutter2020/views/movies/index.dart';
-import 'package:learningflutter2020/views/movies/show.dart';
+import 'package:learningflutter2020/views/movies/movie_list.dart';
+import 'package:learningflutter2020/views/movies/movie_detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,14 +19,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/',
+      initialRoute: LoginScreen.routeName,
       routes: {
-        '/': (context) => MovieListScreen(),
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/movies': (context) => MovieListScreen(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/movies/detail': (context) => MovieDetailScreen(),
-        '/login': (context) => LoginScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
+        MovieDetailScreen.routeName: (context) => MovieDetailScreen(),
+        MovieListScreen.routeName: (context) => MovieListScreen(),
       },
     );
   }
