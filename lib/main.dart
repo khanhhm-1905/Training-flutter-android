@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learningflutter2020/views/login.dart';
+import 'package:learningflutter2020/views/auth/login.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learningflutter2020/views/movies/index.dart';
+import 'package:learningflutter2020/views/movies/show.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,30 +19,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Center(
-        child: new ConstrainedBox(
-          constraints: new BoxConstraints.expand(),
-          child: new DecoratedBox(
-            decoration: new BoxDecoration(
-              gradient: new LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[Colors.deepOrangeAccent, Colors.deepOrangeAccent, Colors.pinkAccent, Colors.pink]
-              ),
-            ),
-            child: new LoginScreen()
-          ),
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MovieListScreen(),
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/movies': (context) => MovieListScreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/movies/detail': (context) => MovieDetailScreen(),
+        '/login': (context) => LoginScreen(),
+      },
     );
   }
 }
