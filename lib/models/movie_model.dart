@@ -35,18 +35,4 @@ class MovieModel {
     overview,
     releaseDate,
   ];
-
-  // factory MovieModel.fromJson(Map<String, dynamic> json) {
-  //   return MovieModel(
-  //     title: json['title'],
-  //     message: json['message'],
-  //     posterPath: json['poster_path'],
-  //     backdropPath: json['backdrop_path'],
-  //     originalTitle: json['original_title'],
-  //     genreIds: json['genre_ids'],
-  //     voteAverage: json['vote_average'],
-  //     overview: json['overview'],
-  //     releaseDate: json['release_date'],
-  //   );
-  // }
 }

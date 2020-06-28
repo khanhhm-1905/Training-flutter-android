@@ -51,7 +51,8 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   }
 
   Future<List<MovieModel>> _fetchMovies(int startIndex, int limit) async {
-    final response = await httpClient.get('https://api.themoviedb.org/3/movie/popular?api_key=d61431a2fb64b6e56c6f086952e63ab6');
+    final response = await httpClient.get(
+        'https://api.themoviedb.org/3/movie/popular?api_key=d61431a2fb64b6e56c6f086952e63ab6');
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body)['results'] as List;
@@ -61,6 +62,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           id: rawMovie['id'],
           title: rawMovie['title'],
           overview: rawMovie['overview'],
+          posterPath: rawMovie['poster_path'],
         );
       }).toList();
     } else {

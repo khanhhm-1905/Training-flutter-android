@@ -1,51 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learningflutter2020/bloc/bloc.dart';
+import 'package:learningflutter2020/main.dart';
 import 'package:learningflutter2020/models/movie_model.dart';
 import 'package:http/http.dart' as http;
-
-//class MovieListScreen extends StatelessWidget {
-//  static const routeName = '/movies/list';
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    final MovieModel movie = ModalRoute.of(context).settings.arguments;
-//
-//    return BlocProvider(
-//      create: (context) =>
-//          MovieBloc(httpClient: http.Client())..add(MovieFetched()),
-//      child: HomePage(),
-//    );
-//  }
-//}
 
 class MovieListScreen extends StatelessWidget {
   static const routeName = '/movies/list';
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Infinite Scroll',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Movies'),
-        ),
-        body: BlocProvider(
-          create: (context) =>
-          MovieBloc(httpClient: http.Client())..add(MovieFetched()),
-          child: HomePage(),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Movies'),
+      ),
+      body: BlocProvider(
+        create: (context) =>
+            MovieBloc(httpClient: http.Client())..add(MovieFetched()),
+        child: MovieList(),
       ),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class MovieList extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _MovieListState createState() => _MovieListState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MovieListState extends State<MovieList> {
   MovieBloc _movieBloc;
 
   @override
@@ -73,7 +56,7 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (BuildContext context, int index) {
               return MovieWidget(movie: state.movies[index]);
             },
-            itemCount: state.movies.length
+            itemCount: state.movies.length,
           );
         }
         return Center(
@@ -92,12 +75,17 @@ class MovieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-       leading: Text(
-        '${movie.title}',
-        style: TextStyle(fontSize: 10.0),
-      ),
-      title: Text(movie.title),
-      dense: true,
-    );
+        leading: Image.network(
+            'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
+            fit: BoxFit.cover),
+        title: Text(movie.title),
+        subtitle: Text(
+          movie.overview,
+          maxLines: 5,
+        ),
+        dense: true,
+        onTap: () {
+          BlocProvider.of<MyBloc>(context).add(MyEvent.movieDetailEvent);
+        });
   }
 }
