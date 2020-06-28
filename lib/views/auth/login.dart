@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
-import 'package:learningflutter2020/models/movie_model.dart';
 import 'package:learningflutter2020/views/movies/movie_list.dart';
 
 class LoginScreen extends StatelessWidget {

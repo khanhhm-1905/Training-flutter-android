@@ -4,12 +4,14 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learningflutter2020/views/movies/movie_list.dart';
 import 'package:learningflutter2020/views/movies/movie_detail.dart';
+import 'package:learningflutter2020/bloc/bloc.dart';
 
 void main() {
-  runApp(MyApp());
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
