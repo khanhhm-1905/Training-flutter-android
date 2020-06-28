@@ -45,27 +45,7 @@ class _MovieDetailState extends State<MovieDetail> {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBloc, MovieState>(
       builder: (context, state) {
-        if (state is MovieFailure) {
-          return Center(
-            child: Text('failed to fetch movies'),
-          );
-        }
-        if (state is MovieSuccess) {
-          if (state.movies.isEmpty) {
-            return Center(
-              child: Text('no movies'),
-            );
-          }
-          return ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return Text('asdsadsa');
-            },
-            itemCount: state.movies.length,
-          );
-        }
-        return Center(
-          child: CircularProgressIndicator(),
-        );
+        return Text('Tiep');
       },
     );
   }

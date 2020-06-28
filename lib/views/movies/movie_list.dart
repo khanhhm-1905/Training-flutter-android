@@ -12,7 +12,7 @@ class MovieListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Movies'),
+        title: Text('Popular'),
       ),
       body: BlocProvider(
         create: (context) =>
@@ -41,17 +41,7 @@ class _MovieListState extends State<MovieList> {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieBloc, MovieState>(
       builder: (context, state) {
-        if (state is MovieFailure) {
-          return Center(
-            child: Text('failed to fetch movies'),
-          );
-        }
         if (state is MovieSuccess) {
-          if (state.movies.isEmpty) {
-            return Center(
-              child: Text('no movies'),
-            );
-          }
           return ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return MovieWidget(movie: state.movies[index]);
@@ -60,7 +50,7 @@ class _MovieListState extends State<MovieList> {
           );
         }
         return Center(
-          child: CircularProgressIndicator(),
+          child: Text('failed to fetch movies'),
         );
       },
     );
