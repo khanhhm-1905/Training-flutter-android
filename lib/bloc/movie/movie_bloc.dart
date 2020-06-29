@@ -63,6 +63,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           title: rawMovie['title'],
           overview: rawMovie['overview'],
           posterPath: rawMovie['poster_path'],
+          backdropPath: rawMovie['backdrop_path'],
         );
       }).toList();
     } else {

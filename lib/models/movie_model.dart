@@ -6,7 +6,7 @@ class MovieModel {
   final String backdropPath;
   final String originalTitle;
   final List genreIds;
-  final double voteAverage;
+  final String voteAverage;
   final String overview;
   final String releaseDate;
 

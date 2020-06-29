@@ -4,6 +4,7 @@ import 'package:learningflutter2020/bloc/bloc.dart';
 import 'package:learningflutter2020/main.dart';
 import 'package:learningflutter2020/models/movie_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:learningflutter2020/views/movies/movie_detail.dart';
 
 class MovieListScreen extends StatelessWidget {
   static const routeName = '/movies/list';
@@ -64,18 +65,29 @@ class MovieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(movie);
     return ListTile(
-        leading: Image.network(
-            'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
-            fit: BoxFit.cover),
-        title: Text(movie.title),
+        leading: SizedBox(
+          height: 100,
+          width: 70,
+          child: Image.network(
+              'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
+              fit: BoxFit.cover),
+        ),
+        title: Text(
+            movie.title,
+          style: TextStyle(
+            fontSize: 15
+          )
+        ),
         subtitle: Text(
           movie.overview,
-          maxLines: 5,
+          maxLines: 3,
         ),
         dense: true,
         onTap: () {
-          BlocProvider.of<MyBloc>(context).add(MyEvent.movieDetailEvent);
+          Navigator.of(context)
+              .pushNamed(MovieDetailScreen.routeName, arguments: movie);
         });
   }
 }

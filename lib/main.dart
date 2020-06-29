@@ -29,15 +29,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
-      home: BlocBuilder<MyBloc, MyState>(
-        builder: (_, state) =>
-            state is MovieListState ? MovieListScreen() : MovieDetailScreen(),
-      ),
+      routes: {
+        MovieListScreen.routeName: (context) => MovieListScreen(),
+        MovieDetailScreen.routeName: (context) => MovieDetailScreen(),
+      },
+      initialRoute: MovieListScreen.routeName,
     );
   }
 }
