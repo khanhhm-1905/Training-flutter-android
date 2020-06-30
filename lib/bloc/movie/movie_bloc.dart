@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:learningflutter2020/models/base_model.dart';
-import 'package:learningflutter2020/bloc/bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:learningflutter2020/bloc/bloc.dart';
+import 'package:learningflutter2020/models/base_model.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -64,6 +64,9 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
           overview: rawMovie['overview'],
           posterPath: rawMovie['poster_path'],
           backdropPath: rawMovie['backdrop_path'],
+          genreIds: rawMovie['genre_ids'],
+          voteAverage: double.parse(rawMovie['vote_average'].toString()),
+          releaseDate: rawMovie['release_date'],
         );
       }).toList();
     } else {

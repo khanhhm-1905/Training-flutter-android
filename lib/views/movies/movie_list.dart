@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learningflutter2020/bloc/bloc.dart';
-import 'package:learningflutter2020/main.dart';
-import 'package:learningflutter2020/models/movie_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:learningflutter2020/bloc/bloc.dart';
+import 'package:learningflutter2020/models/movie_model.dart';
 import 'package:learningflutter2020/views/movies/movie_detail.dart';
 
 class MovieListScreen extends StatelessWidget {
@@ -51,7 +50,7 @@ class _MovieListState extends State<MovieList> {
           );
         }
         return Center(
-          child: Text('failed to fetch movies'),
+          child: Text('loading movies'),
         );
       },
     );
@@ -65,29 +64,66 @@ class MovieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(movie);
-    return ListTile(
-        leading: SizedBox(
-          height: 100,
-          width: 70,
-          child: Image.network(
-              'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
-              fit: BoxFit.cover),
-        ),
-        title: Text(
-            movie.title,
-          style: TextStyle(
-            fontSize: 15
-          )
-        ),
-        subtitle: Text(
-          movie.overview,
-          maxLines: 3,
-        ),
-        dense: true,
-        onTap: () {
-          Navigator.of(context)
-              .pushNamed(MovieDetailScreen.routeName, arguments: movie);
-        });
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.of(context)
+                .pushNamed(MovieDetailScreen.routeName, arguments: movie);
+          },
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.white,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minWidth: 100,
+                    minHeight: 150,
+                    maxWidth: 100,
+                    maxHeight: 150,
+                  ),
+                  child: Image.network(
+                    "https://image.tmdb.org/t/p/w500${movie.posterPath}",
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        movie.title,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 5),
+                      Flexible(
+                        child: Text(
+                          movie.overview,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 12, color: Colors.black),
+                          maxLines: 5,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

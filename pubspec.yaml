@@ -54,6 +54,8 @@ flutter:
     - assets/images/connexion.png
     - assets/images/ic_tw.png
     - assets/images/ic_fb.png
+    - assets/images/play.png
+    - assets/images/reviews.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
