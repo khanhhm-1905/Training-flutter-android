@@ -70,7 +70,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         );
       }).toList();
     } else {
-      throw Exception('error fetching movies');
+      throw Exception('Something errors');
     }
   }
 }

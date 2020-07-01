@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
@@ -11,8 +12,9 @@ class MovieListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Popular'),
+      appBar: CupertinoNavigationBar(
+        middle: Text('Popular', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black)),
+        backgroundColor: CupertinoColors.white,
       ),
       body: BlocProvider(
         create: (context) =>
@@ -50,7 +52,7 @@ class _MovieListState extends State<MovieList> {
           );
         }
         return Center(
-          child: Text('loading movies'),
+          child: Text('loading'),
         );
       },
     );

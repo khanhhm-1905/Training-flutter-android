@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:learningflutter2020/bloc/bloc.dart';
 import 'package:learningflutter2020/models/base_model.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class MovieDetailScreen extends StatelessWidget {
   static const routeName = '/movies/detail';
@@ -10,13 +12,10 @@ class MovieDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MovieModel movie = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Movie Detail'),
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white),
-              onPressed: () => Navigator.pop(context)),
+        appBar: CupertinoNavigationBar(
+          middle: Text('Movie detail', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.black)),
+          backgroundColor: CupertinoColors.white,
         ),
         body: BlocProvider(
             create: (context) =>
@@ -51,23 +50,46 @@ class MovieDetailScreen extends StatelessWidget {
                       child: Container(
                         color: Colors.white,
                         margin:
-                            const EdgeInsets.only(left: 20, top: 10, right: 20),
+                            const EdgeInsets.only(left: 20, top: 10, right: 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             new Expanded(
-                              flex: 1,
-                              child: Text(
-                                movie.title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 19,
+                              flex: 5,
+                              child: Container(
+                                margin: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                                width: double.maxFinite,
+                                child: Text(
+                                  movie.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black),
+                                    color: Colors.black,),
+                                  softWrap: true,
+                                ),
+                              )
+                            ),
+
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 40,
+                                width: double.maxFinite,
+                                child: new CircularPercentIndicator(
+                                  radius: 30.0,
+                                  lineWidth: 4.0,
+                                  percent: movie.voteAverage / 10,
+                                  center: new Text("${movie.voteAverage}", style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),),
+                                  progressColor: Colors.black87,
+                                  backgroundColor: Colors.grey,
+                                ),
                               ),
                             ),
+
                           ],
                         ),
                       ),
